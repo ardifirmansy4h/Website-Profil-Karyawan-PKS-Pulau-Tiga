@@ -215,10 +215,10 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Karyawan</th>
-                                    <th>Jabatan</th>
+                                    <th>Jabatan Saat Ini</th>
                                     <th>Golongan</th>
                                     <th>Tanggal Masuk</th>
-                                    <th>Foto KTP</th>
+                                    <th>Pendidikan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -226,10 +226,10 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Karyawan</th>
-                                    <th>Jabatan</th>
+                                    <th>Jabatan Saat Ini</th>
                                     <th>Golongan</th>
                                     <th>Tanggal Masuk</th>
-                                    <th>Foto KTP</th>
+                                    <th>Pendidikan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </tfoot>
@@ -240,15 +240,11 @@
 
                                         <td> {{ $i }}</td>
                                         <td>{{ $item->nama }}</td>
-                                        <td>{{ $item->jabatan }}</td>
+                                        <td>{{ $item->jabatan_saat }}</td>
                                         <td>{{ $item->gol }}</td>
                                         <td>{{ $item->tgl_masuk }}</td>
-                                        <td>
-                                            @if ($item->foto_ktp)
-                                                <img src="{{ url('foto') . '/' . $item->foto_ktp }}" alt=""
-                                                    style="max-width:50px;max-height:50px;">
-                                            @endif
-                                        </td>
+                                        <td>{{ $item->pendidikan }}</td>
+
                                         <td class="text-center"> <a href="/edit/{{ $item->id }}"
                                                 class="btn btn-warning btn-icon-split">
                                                 <span class="text">Edit</span>
@@ -256,7 +252,7 @@
                                                 onclick="return confirm('Anda yakin ingin menghapus data ini?')"
                                                 class="btn btn-danger btn-icon-split">
                                                 <span class="text">Hapus</span>
-                                            </a> </a> <a href="/detail/{{ $item->id }}"
+                                            </a> <a href="/detail/{{ $item->id }}"
                                                 class="btn btn-secondary btn-icon-split">
                                                 <span class="text">Detail</span>
                                             </a></td>

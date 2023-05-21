@@ -205,6 +205,17 @@
                     <span class="text">Kembali</span>
                 </a>
                 <div class="m-3">
+                    @if ($errors->any())
+                        <div class="pt-3">
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $item)
+                                        <li>{{ $item }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    @endif
                     <form action="/update/{{ $data->id }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
@@ -213,9 +224,19 @@
                                 id="nama" placeholder="Masukkan Nama" required>
                         </div>
                         <div class="mb-3">
-                            <label for="jabatan" class="form-label">Jabatan</label>
+                            <label for="nama" class="form-label">No Registrasi SAP</label>
+                            <input type="text" name="no_regis" value="{{ $data->no_regis }}" class="form-control"
+                                id="nama" placeholder="Masukkan No Registrasi" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="jabatan" class="form-label">Jabatan Terakhir</label>
                             <input type="text" name="jabatan" value="{{ $data->jabatan }}" class="form-control"
-                                id="jabatan" placeholder="Masukkan jabatan" required>
+                                id="jabatan" placeholder="Masukkan Posisi Terakhir" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="jabatan" class="form-label">Jabatan Saat Ini</label>
+                            <input type="text" name="jabatan_saat" value="{{ $data->jabatan_saat }}"
+                                class="form-control" id="jabatan" placeholder="Masukkan Jabatan Saat Ini" required>
                         </div>
                         <div class="mb-3">
                             <label for="bagian" class="form-label">Bagian</label>
@@ -258,6 +279,11 @@
                                 id="no_ktp" placeholder="Masukkan No KTP">
                         </div>
                         <div class="mb-3">
+                            <label for="no_ktp" class="form-label">Status</label>
+                            <input type="text" name="status" value="{{ $data->status }}" class="form-control"
+                                id="no_ktp" placeholder="Masukkan Status">
+                        </div>
+                        <div class="mb-3">
                             <label for="nama_istri" class="form-label">Nama Istri/Suami</label>
                             <input type="text" name="nama_istri" value="{{ $data->nama_istri }}"
                                 class="form-control" id="nama_istri" placeholder="Masukkan Nama Istri">
@@ -274,7 +300,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="cp" class="form-label">Sisa Cuti Panjang</label>
-                            <input type="text" value="{{ $data->panjang }}" name="cuti_panjang"
+                            <input type="text" value="{{ $data->cuti_panjang }}" name="cuti_panjang"
                                 class="form-control" id="cuti_panjang" placeholder="Masukkan Sisa Cuti Panjang">
                         </div>
                         <div class="mb-3">
@@ -282,9 +308,27 @@
                             <textarea name="pelatihan" class="form-control" rows="3" id="pelatihan" placeholder="Masukkan Pelatihan">{{ $data->pelatihan }}</textarea>
                         </div>
                         <div class="mb-3">
+                            <label for="foto_pelatihan" class="form-label">Sertifikat Pelatihan</label>
+                            <p>*File yang di upload hanya boleh berupa PDF</p>
+                            <input type="file" name="foto_pelatihan" class="form-control" id=""
+                                placeholder="Masukkan Sertifikat Pelatihan">
+                        </div>
+                        <div class="mb-3">
                             <label for="penghargaan" class="form-label">Penghargaan di Dapatkan</label>
                             <textarea name="penghargaan" class="form-control" rows="3" id="penghargaan"
                                 placeholder="Masukkan Penghargaan">{{ $data->penghargaan }}</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="foto" class="form-label">Sertifikat Penghargaan</label>
+                            <p>*File yang di upload hanya boleh berupa PDF</p>
+                            <input type="file" name="foto_penghargaan" class="form-control" id=""
+                                placeholder="Masukkan Sertifikat Penghargaan">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Surat Peringatan</label>
+                            <p>*File yang di upload hanya boleh berupa PDF</p>
+                            <input type="file" name="foto_peringatan" class="form-control" id=""
+                                placeholder="Masukkan Surat Peringatan">
                         </div>
                         @if ($data->foto_ktp)
                             <div class="div mb-3">
@@ -294,6 +338,7 @@
                         @endif
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto KTP</label>
+                            <p>*File yang di upload hanya boleh berupa JPG,JPEG atau PNG</p>
                             <input type="file" name="foto_ktp" class="form-control" id="foto_ktp"
                                 placeholder="Masukkan Foto">
                         </div>
@@ -305,6 +350,7 @@
                         @endif
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto KK</label>
+                            <p>*File yang di upload hanya boleh berupa JPG,JPEG atau PNG</p>
                             <input type="file" name="foto_kk" class="form-control" id="foto_kk"
                                 placeholder="Masukkan Foto">
                         </div>
@@ -316,6 +362,7 @@
                         @endif
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto Ijazah</label>
+                            <p>*File yang di upload hanya boleh berupa JPG,JPEG atau PNG</p>
                             <input type="file" name="foto_ijazah" class="form-control" id="foto_ijazah"
                                 placeholder="Masukkan Foto">
                         </div>
@@ -327,6 +374,8 @@
                         @endif
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto Akte</label>
+                            <p>*File yang di upload hanya boleh berupa JPG,JPEG atau PNG</p>
+
                             <input type="file" name="foto_akte" class="form-control" id="foto_akte"
                                 placeholder="Masukkan Foto">
                         </div>

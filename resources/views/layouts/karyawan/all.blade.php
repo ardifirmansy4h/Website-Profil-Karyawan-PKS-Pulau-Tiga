@@ -209,8 +209,10 @@
                         <div class="col-md-6 text-black">
                             <h5 class="font-weight-bold">Nama Karyawan</h5>
                             <p>{{ $data->nama }}</p>
-                            <h5 class="font-weight-bold">Jabatan</h5>
+                            <h5 class="font-weight-bold">Posisi Terakhir</h5>
                             <p>{{ $data->jabatan }}</p>
+                            <h5 class="font-weight-bold">Jabatan Saat Ini</h5>
+                            <p>{{ $data->jabatan_saat }}</p>
                             <h5 class="font-weight-bold">Bagian</h5>
                             <p>{{ $data->bagian }}</p>
                             <h5 class="font-weight-bold">Golongan</h5>
@@ -219,13 +221,21 @@
                             <p>{{ $data->pendidikan }}</p>
                             <h5 class="font-weight-bold">No KTP</h5>
                             <p>{{ $data->no_ktp }}</p>
+                            <h5 class="font-weight-bold">Status</h5>
+                            <p>{{ $data->status }}</p>
                             <h5 class="font-weight-bold">Nama Istri/Suami</h5>
                             <p>{{ $data->nama_istri }}</p>
                             <h5 class="font-weight-bold">Jumlah Tanggungan</h5>
                             <p>{{ $data->jml_anak }}</p>
+                            <p> <a href="{{ url('pdf_peringatan/' . $data->foto_peringatan) }}"
+                                    class="btn btn-primary btn-icon-split mt-3">
+                                    <span class="text">Download Surat Peringatan</span>
+                                </a></p>
                         </div>
                         <!-- Bagian Kanan -->
                         <div class="col-md-6 text-black">
+                            <h5 class="font-weight-bold">Nomor Registrasi SAP</h5>
+                            <p>{{ $data->no_regis }}</p>
                             <h5 class="font-weight-bold">Sisa Cuti Tahunan</h5>
                             <p>{{ $data->cuti_tahunan }}</p>
                             <h5 class="font-weight-bold">Sisa Cuti Panjang</h5>
@@ -243,8 +253,17 @@
                             <p>{{ $data->tgl_pensiun }}</p>
                             <h5 class="font-weight-bold">Pelatihan Diikuti</h5>
                             <p>{{ $data->pelatihan }}</p>
+                            <a href="{{ url('pdf_pelatihan/' . $data->foto_pelatihan) }}"
+                                class="btn btn-primary btn-icon-split">
+                                <span class="text">Download Sertifikat Pelatihan</span>
+                            </a>
                             <h5 class="font-weight-bold">Penghargaan Didapatkan</h5>
                             <p>{{ $data->penghargaan }}</p>
+                            <a href="{{ url('pdf_penghargaan/' . $data->foto_penghargaan) }}"
+                                class="btn btn-primary btn-icon-split">
+                                <span class="text">Download Sertifikat Penghargaan</span>
+                            </a>
+
                         </div>
                     </div>
                 </div>

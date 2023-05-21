@@ -25,4 +25,8 @@ Route::post('/post', [karyawanController::class, 'store']);
 Route::get('/edit/{id}', [karyawanController::class, 'edit']);
 Route::get('/detail/{id}', [karyawanController::class, 'show']);
 Route::post('/update/{id}', [karyawanController::class, 'update']);
+Route::get('/pdf_pelatihan/{filename}', [karyawanController::class, 'pelatihan']);
+Route::get('/penghargaan/{id}', [karyawanController::class, 'penghargaan']);
+Route::get('/peringatan/{id}', [karyawanController::class, 'peringatan']);
 Route::get('/delete/{id}', [karyawanController::class, 'destroy']);
+

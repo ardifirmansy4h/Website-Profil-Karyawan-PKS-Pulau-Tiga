@@ -18,6 +18,9 @@ class karyawan extends Model
      'tgl_masuk',
      'tgl_pensiun',
      'pendidikan',
-     'no_ktp', 'nama_istri', 'jml_anak','cuti_tahunan', 'cuti_panjang', 'pelatihan', 'penghargaan', 'foto_ktp', 'foto_kk', 'foto_ijazah', 'foto_akte'];
+     'no_ktp',
+      'nama_istri',
+       'jml_anak',
+       'cuti_tahunan', 'cuti_panjang', 'pelatihan', 'penghargaan', 'foto_ktp', 'foto_kk', 'foto_ijazah', 'foto_akte', 'status', 'jabatan_saat', 'no_regis', 'foto_penghargaan', 'foto_pelatihan', 'foto_peringatan'];
     protected $table = 'karyawans';
 }
